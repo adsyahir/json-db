@@ -1,5 +1,5 @@
 // import other routes
-const userRoutes = require('./count');
+const userRoutes = require('./users');
 
 const appRouter = (app, fs) => {
 

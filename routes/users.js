@@ -1,8 +1,7 @@
-
 const userRoutes = (app, fs) => {
 
     // variables
-    const dataPath = './data/db.json';
+    const dataPath = './data/users.json';
 
     // helper methods
     const readFile = (callback, returnJson = false, filePath = dataPath, encoding = 'utf8') => {
@@ -27,7 +26,7 @@ const userRoutes = (app, fs) => {
     };
 
     // READ
-    app.get('/count', (req, res) => {
+    app.get('/users', (req, res) => {
         fs.readFile(dataPath, 'utf8', (err, data) => {
             if (err) {
                 throw err;
@@ -38,7 +37,7 @@ const userRoutes = (app, fs) => {
     });
 
     // CREATE
-    app.post('/count', (req, res) => {
+    app.post('/users', (req, res) => {
 
         readFile(data => {
             // Note: this isn't ideal for production use. 
@@ -57,7 +56,7 @@ const userRoutes = (app, fs) => {
 
 
     // UPDATE
-    app.put('/count/:id', (req, res) => {
+    app.put('/users/:id', (req, res) => {
 
         readFile(data => {
 
@@ -74,7 +73,7 @@ const userRoutes = (app, fs) => {
 
 
     // DELETE
-    app.delete('/count/:id', (req, res) => {
+    app.delete('/users/:id', (req, res) => {
 
         readFile(data => {
 
